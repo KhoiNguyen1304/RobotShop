@@ -3,6 +3,7 @@
 
 #include "RobotPart.h"
 #include "PartType.h"
+
 class PartType {
 	public:
 		static const TORSO = 0;
@@ -10,5 +11,5 @@ class PartType {
 		static const ARM = 2;
 		static const LOCOMOTOR = 3;
 		static const BATTERY = 4;
-}
+};
 #endif

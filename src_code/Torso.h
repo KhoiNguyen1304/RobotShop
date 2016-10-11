@@ -2,6 +2,7 @@
 #define __TORSO_H 2016
 
 #include "RobotPart.h"
+
 class Torso: public RobotPart {
 	public:
 		Torso(string name, int partNumber, double weight, double cost,
@@ -11,3 +12,4 @@ class Torso: public RobotPart {
 		int BatteryCompartments;
 
 }
+#endif

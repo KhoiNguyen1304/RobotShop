@@ -9,3 +9,5 @@ class Head: public RobotPart {
 		Head(string name, int partNumber, double weight, double cost,
 			 string description, PartType partType);
 };
+
+#endif
