@@ -5,11 +5,11 @@
 
 class Torso: public RobotPart {
 	public:
-		Torso(string name, int partNumber, double weight, double cost,
-			  string description, int kBatteryCompartments, PartType partType);
+		Torso(std::string name, int partNumber, double weight, double cost,
+			  std::string description, int partType, int kBatteryCompartments);
 		int GetBatteryCompartmentSize();
 	private:
 		int BatteryCompartments;
 
-}
+};
 #endif

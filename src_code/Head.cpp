@@ -1,7 +1,7 @@
 #include "Head.h"
-#include "RobotPart"
-#include "PartType"
+#include "RobotPart.h"
 
-Head::Head(string name, int partNumber, double weight, double cost,
-			 string description, PartType partType) :
-	RobotPart(name, partNumber, weight, cost, description, RobotPart::PartType::HEAD) {};
+
+Head::Head(std::string name, int partNumber, double weight, double cost,
+		   std::string description, int partType) :
+	RobotPart(name, partNumber, weight, cost, description, partType) {};

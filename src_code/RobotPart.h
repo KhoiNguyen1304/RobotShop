@@ -1,25 +1,35 @@
 #ifndef __ROBOTPART_H
 #define	__ROBOTPART_H 2016
 
+#include <string>
+
 class RobotPart {
 	public:
-		RobotPart(string kname, int kpartNumber, double kweight, double kcost,
-			      string kdescription, PartType kpartType);
-		string GetName();
+
+		RobotPart(std::string kname, int kpartNumber, double kweight, double kcost,
+			      std::string kdescription, int kpartType);
+		std::string GetName();
 		int GetPartNumber();
 		double GetWeight();
 		double GetCost();
-		string GetDescription();
-		PartType GetPartType();
-		string ToString();
-		string GetPartTypeString();
+		std::string GetDescription();
+		std::string ToString();
+		int getPartType();
+		std::string PartType_toString();
+
+		static const int TORSO = 0;
+		static const int HEAD = 1;
+		static const int ARM = 2;
+		static const int LOCOMOTOR = 3;
+		static const int BATTERY = 4;
 
 	protected:
-		string name;
+		std::string name;
 		int partNumber;
 		double weight;
 		double cost;
-		string description;
-		PartType partType;
+		std::string description;
+		int partType;
+
 };
 #endif

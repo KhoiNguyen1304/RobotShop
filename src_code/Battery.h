@@ -2,12 +2,11 @@
 #define __BATTERY_H 2016
 
 #include "RobotPart.h"
-#include "PartType.h"
 
 class Battery: public RobotPart {
 	public:
-		Battery(string name, int partNumber, double weight, double cost,
-			 string description, double kilowattHours, PartType partType);
+		Battery(std::string name, int partNumber, double weight, double cost,
+			 std::string description, int partType, double kilowattHours);
 		double GetKilowattHours();
 		
 	private:

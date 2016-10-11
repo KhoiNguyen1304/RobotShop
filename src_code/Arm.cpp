@@ -1,9 +1,8 @@
 #include "RobotPart.h"
 #include "Arm.h"
-#include "PartType.h"
 
-Arm::Arm(string name, int partNumber, double weight, double cost,
-			 string description, double kPowerConsumeW, PartType partType) : PowerConsumeW(kPowerConsumeW),
-			 RobotPart(name, partNumber, weight, cost, description, RobotPart::PartType::ARM) {};
+Arm::Arm(std::string name, int partNumber, double weight, double cost,
+		std::string description, int partType, double kPowerConsumeW) : 
+		RobotPart(name, partNumber, weight, cost, description, partType), PowerConsumeW(kPowerConsumeW) {};
 
-double Arm::GetPowerConsumeW() {return PowerConsumeW};
+double Arm::GetPowerConsumeW() {return PowerConsumeW;}

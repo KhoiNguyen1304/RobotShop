@@ -2,6 +2,6 @@
 #define __VIEW_H 2016
 
 void displayMenu();
-void dislayCreateMenu();	
+void displayCreateMenu();	
 
 #endif

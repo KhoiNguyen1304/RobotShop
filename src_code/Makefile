@@ -5,28 +5,28 @@ CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
 executable : $(OBJS)
-    $(CC) $(LFLAGS) $(OBJS)
+		$(CC) $(LFLAGS) $(OBJS)
 
 RobotPart.o : RobotPart.cpp RobotPart.h
-        $(CC) $(CFLAGS) RobotPart.cpp
+		$(CC) $(CFLAGS) RobotPart.cpp
 
 Torso.o : Torso.cpp Torso.h
-        $(CC) $(CFLAGS) Torso.cpp
+		$(CC) $(CFLAGS) Torso.cpp
 
 Head.o : Head.cpp Head.h
-        $(CC) $(CFLAGS) Head.cpp
+		$(CC) $(CFLAGS) Head.cpp
 
 Arm.o : Arm.cpp Arm.h
-        $(CC) $(CFLAGS) Arm.cpp
+		$(CC) $(CFLAGS) Arm.cpp
 
 Locomotor.o : Locomotor.cpp Locomotor.h
-        $(CC) $(CFLAGS) Locomotor.cpp
+		$(CC) $(CFLAGS) Locomotor.cpp
 
 Battery.o : Battery.cpp Battery.h
-        $(CC) $(CFLAGS) Battery.cpp
+		$(CC) $(CFLAGS) Battery.cpp
 
 view.o : view.cpp view.h
-        $(CC) $(CFLAGS) view.cpp
+		$(CC) $(CFLAGS) view.cpp
 
 clean:
-    \rm *.o a.out
+	\rm *.o a.out
