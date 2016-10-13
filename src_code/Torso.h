@@ -8,6 +8,7 @@ class Torso: public RobotPart {
 		Torso(std::string name, int partNumber, double weight, double cost,
 			  std::string description, int partType, int kBatteryCompartments);
 		int GetBatteryCompartmentSize();
+		static Torso createTorso();
 	private:
 		int BatteryCompartments;
 
