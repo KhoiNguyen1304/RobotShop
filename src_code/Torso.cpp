@@ -1,12 +1,12 @@
-#include "RobotPart.h"
 #include "Torso.h"
 #include <iostream>
 
 using namespace std;
 
-Torso::Torso(std::string name, int partNumber, double weight, double cost,
-			  std::string description,  int kpartType, int kBatteryCompartments) :
-RobotPart(name, partNumber, weight, cost, description, partType), BatteryCompartments(kBatteryCompartments) {};
+Torso::Torso(std::string kname, int kpartNumber, double kweight, double kcost,
+			  std::string kdescription, int kpartType, int kBatteryCompartments) :
+
+RobotPart(kname, kpartNumber, kweight, kcost, kdescription, kpartType), BatteryCompartments(kBatteryCompartments) {}
 
 int Torso::GetBatteryCompartmentSize() {return BatteryCompartments;};
 

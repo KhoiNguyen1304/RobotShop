@@ -2,7 +2,6 @@
 #define __HEAD_H 2016
 
 #include "RobotPart.h"
-#include "PartType.h"
 
 class Head: public RobotPart {
 	public:

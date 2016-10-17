@@ -24,12 +24,12 @@ class RobotPart {
 		static const int BATTERY = 4;
 
 	protected:
+
 		std::string name;
 		int partNumber;
 		double weight;
 		double cost;
 		std::string description;
 		int partType;
-
 };
 #endif

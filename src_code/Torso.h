@@ -5,10 +5,10 @@
 
 class Torso: public RobotPart {
 	public:
-		Torso(std::string name, int partNumber, double weight, double cost,
-			  std::string description, int partType, int kBatteryCompartments);
+		Torso(std::string kname, int kpartNumber, double kweight, double kcost,
+			  std::string kdescription, int kpartType, int kBatteryCompartments);
 		int GetBatteryCompartmentSize();
-		static Torso createTorso();
+		Torso createTorso();
 	private:
 		int BatteryCompartments;
 

@@ -1,9 +1,9 @@
 #include "RobotPart.h"
-#include "PartType.h"
+
 
 RobotPart::RobotPart(std::string kname, int kpartNumber, double kweight, double kcost,
 					 std::string kdescription, int kpartType) : name(kname),
-    partNumber(kpartNumber), weight(kweight), cost(kcost), description(kdescription), partType(kpartType) {};
+    partNumber(kpartNumber), weight(kweight), cost(kcost), description(kdescription), partType(kpartType) {}
 
 std::string RobotPart::GetName() {return name;}
 
@@ -25,4 +25,5 @@ std::string RobotPart::PartType_toString() {
 		case(LOCOMOTOR) : return "Locomotor";
 		case(BATTERY) : return "Battery";
 	}
+	return 0;
 }
