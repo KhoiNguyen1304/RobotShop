@@ -120,3 +120,12 @@ void list_robotparts(vector<Torso> torso, vector<Head> head, vector<Arm> arm, ve
  		}
  	}
  }
+
+void list_cus(vector<Customer> cus) {
+	cout <<"\nCustomers List" << endl;
+	cout << "--------------" << endl << endl;
+
+	for(std::size_t i = 0; i < cus.size(); i++)
+		cout << "Customer's name: " << cus[i].GetName() << " - Customer's phone number: " << cus[i].GetCusNumber()
+		<< " - Customer's Wallet: " << cus[i].GetWallet() << endl;
+}

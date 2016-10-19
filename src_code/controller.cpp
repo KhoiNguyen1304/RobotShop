@@ -251,23 +251,52 @@ TrackingParts TrackParts() {
 	std::string kArmName;
 	std::string kLocomotorName;
 	std::string kBatteryName;
+	double kTosoPrice;
+	double kHeadPrice;
+	double kArmPrice;
+	double kLocomotorPrice;
+	double kBatteryPrice;
+	int BatteryCompartments;
 
 	cout << "Enter the name of a torso of your choice: ";
 	getline(cin, kTorsoName);
+	cout << "Enter the number of battery compartments of this torso as shown: ";
+	cin >> BatteryCompartments;
+	cin.ignore();
+	cout << "Enter the price of this torso as shown: ";
+	cin >> kTosoPrice;
+	cin.ignore();
 
 	cout << "Enter the name of a head of your choice: ";
 	getline(cin, kHeadName);
+	cout << "Enter the price of this head as shown: ";
+	cin >> kHeadPrice;
+	cin.ignore();
 
 	cout << "Enter the name of an arm (will automatically add the other arm, 2 arms total) of your choice: ";
 	getline(cin, kArmName);
+	cout << "Enter the price of this arm as shown: ";
+	cin >> kArmPrice;
+	cin.ignore();
+	kArmPrice *= 2;
 
 	cout << "Enter the name of a locomotor of you choice: ";
 	getline(cin, kLocomotorName);
+	cout << "Enter the price of this locomotor as shown: ";
+	cin >> kLocomotorPrice;
+	cin.ignore();
 
 	cout << "Enter the name of a battery (will automatically add the number of batteries propotionally with torso's battery compartments) of your choice: ";
 	getline(cin, kBatteryName);
+	cout << "Enter the price of this battery as shown: ";
+	cin >> kBatteryPrice;
+	cin.ignore();
+	kBatteryPrice *= BatteryCompartments;
 
-	return TrackingParts(kTorsoName, kHeadName, kArmName, kLocomotorName, kBatteryName);
+	cout << "Your total price of the parts is: " << kTosoPrice + kHeadPrice + kArmPrice + kLocomotorPrice + kBatteryPrice << endl;
+	cout << "Remember to input it as the price for this robot model!!" << endl;
+
+	return TrackingParts(kTorsoName, kTosoPrice, kHeadName, kHeadPrice, kArmName, kArmPrice, kLocomotorName, kLocomotorPrice, kBatteryName, kBatteryPrice);
 }
 
 void displayModel_createOp() {
@@ -275,6 +304,24 @@ void displayModel_createOp() {
 	cout << "Let's create robot model!" << endl;
 	cout << "-------------------------" << endl;
 
+}
+
+Customer createCus() {
+	std::string kname;
+	std::string kcusNumber;
+	double kwallet;
+
+	cout << "Customer's name: ";
+	getline(cin, kname);
+
+	cout << "Customer's phone number: ";
+	getline(cin, kcusNumber);
+
+	cout << "Customer's wallet: ";
+	cin >> kwallet;
+	cin.ignore();
+
+	return Customer(kname, kcusNumber, kwallet);
 }
 
 void displayReportMenu() {
@@ -292,6 +339,7 @@ int main () {
 
 	vector<RobotModel> rbmodel;
 	vector<TrackingParts> tp;
+	vector<Customer> cus;
 
 	vector<Torso> torso;
 	vector<Head> head;
@@ -313,14 +361,15 @@ int main () {
 					cin.ignore();
 					switch(Cchoice) {
 						case 1: 
-						case 2:
+						case 2: cus.push_back(createCus());
+								break;
 						case 3:
-						case 4: displayModel_createOp();
-								rbmodel.push_back(createModel());
-								cout << "Choose robot parts from the list to complete creating your robot model" << endl;
-								cout << "----------------------------------------------------------------------" << endl;
+						case 4: cout << "Choose robot parts from the list to create your robot model" << endl;
+								cout << "-----------------------------------------------------------" << endl;
 								list_robotparts(torso, head, arm, loco, batt);
 								tp.push_back(TrackParts());
+								displayModel_createOp();
+								rbmodel.push_back(createModel());
 								break;
 						case 5: int terminate = 1;
 								while(terminate != 0) {
@@ -352,6 +401,8 @@ int main () {
 				    cin >> Rchoice;
 					cin.ignore();
 					switch(Rchoice) {
+						case 2: list_cus(cus);
+								break;
 						case 4: list_models(rbmodel, tp, torso, head, arm, loco, batt);
 								break;
 						case 5: list_robotparts(torso, head, arm, loco, batt);

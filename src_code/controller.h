@@ -6,6 +6,8 @@
 #include "view.h"
 #include "RobotModel.h"
 #include "TrackingParts.h"
+#include "Order.h"
+#include "Customer.h"
 #include <vector>
 
 
@@ -17,10 +19,9 @@ Battery createBattery();
 
 RobotModel createModel();
 TrackingParts TrackParts();
+Customer createCus();
 
 void displayModel_createOp();
-
 void displayCreateMenu();
 void displayParts_createOp();
-
 void displayReportMenu();
