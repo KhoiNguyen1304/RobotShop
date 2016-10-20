@@ -8,12 +8,12 @@ class RobotPart {
 
 		RobotPart(std::string kname, int kpartNumber, double kweight, double kcost,
 			      std::string kdescription, int kpartType);
+		
 		std::string GetName();
 		int GetPartNumber();
 		double GetWeight();
 		double GetCost();
 		std::string GetDescription();
-		std::string ToString();
 		int getPartType();
 		std::string PartType_toString();
 
