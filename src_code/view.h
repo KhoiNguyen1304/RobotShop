@@ -2,6 +2,7 @@
 #include "RobotPart.h"
 #include "RobotModel.h"
 #include "TrackingParts.h"
+#include "RobotOrder.h"
 #include "Customer.h"
 #include "Torso.h"
 #include "Head.h"
@@ -16,3 +17,4 @@
  void list_robotparts(std::vector<Torso> torso, std::vector<Head> head, std::vector<Arm> arm, std::vector<Locomotor> loco, std::vector<Battery> batt);
  void list_models(std::vector<RobotModel> rbmodel, std::vector<TrackingParts> tp, std::vector<Torso> torso, std::vector<Head> head, std::vector<Arm> arm, std::vector<Locomotor> loco, std::vector<Battery> batt);
  void list_cus(std::vector<Customer> cus);
+ void list_orders(std::vector<RobotOrder> order);

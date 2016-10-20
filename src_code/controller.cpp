@@ -230,7 +230,7 @@ RobotModel createModel() {
 	int omodelNumber;
 	double oprice;
 
-	cout << "Name your robot model: " << endl;
+	cout << "\nName your robot model: " << endl;
 	getline(cin, oname);
 
 	cout << "Enter your robot model number: " << endl;
@@ -258,7 +258,7 @@ TrackingParts TrackParts() {
 	double kBatteryPrice;
 	int BatteryCompartments;
 
-	cout << "Enter the name of a torso of your choice: ";
+	cout << "\nEnter the name of a torso of your choice: ";
 	getline(cin, kTorsoName);
 	cout << "Enter the number of battery compartments of this torso as shown: ";
 	cin >> BatteryCompartments;
@@ -301,7 +301,7 @@ TrackingParts TrackParts() {
 
 void displayModel_createOp() {
 
-	cout << "Let's create robot model!" << endl;
+	cout << "\nLet's create robot model!" << endl;
 	cout << "-------------------------" << endl;
 
 }
@@ -311,7 +311,7 @@ Customer createCus() {
 	std::string kcusNumber;
 	double kwallet;
 
-	cout << "Customer's name: ";
+	cout << "\nCustomer's name: ";
 	getline(cin, kname);
 
 	cout << "Customer's phone number: ";
@@ -322,6 +322,52 @@ Customer createCus() {
 	cin.ignore();
 
 	return Customer(kname, kcusNumber, kwallet);
+}
+
+RobotOrder createOrder(vector<RobotModel> rbmodel) {
+	int korderNumber;
+	std::string kdate;
+	double kTotalPrice = 0.0;
+	double kShippingPrice = 10.0;
+	double tempTotalPrice  = 0.0;
+
+	int loop = 1;
+	int condition;
+
+	while(loop != 0) {
+		int quantity;
+		std::string modelName;
+
+		cout << "\nEnter name of the robot model to order: ";
+		getline(cin, modelName);
+		cout << "Enter the quantity of that robot model: ";
+		cin >> quantity;
+		cin.ignore();
+		for(std::size_t i = 0; i < rbmodel.size(); i++)
+		{
+			if(modelName == rbmodel[i].GetName()) {
+				tempTotalPrice = (rbmodel[i].GetPrice() * 1.08 * quantity) + kShippingPrice;
+				kTotalPrice = tempTotalPrice;
+				tempTotalPrice = 0.0;
+			}
+			break;
+		}
+		cout << "Do you want to continue? (1 == Yes and 0 == No): ";
+		cin >> condition;
+		if(condition == 1)
+			continue;
+		else
+			break;
+	}
+
+	cout << "\nEnter order number: ";
+	cin >> korderNumber;
+	cin.ignore();
+
+	cout << "Enter time (MM-DD-YYYY - XX:XX): ";
+	getline(cin, kdate);
+
+	return RobotOrder(korderNumber, kdate, kTotalPrice, kShippingPrice);
 }
 
 void displayReportMenu() {
@@ -340,6 +386,7 @@ int main () {
 	vector<RobotModel> rbmodel;
 	vector<TrackingParts> tp;
 	vector<Customer> cus;
+	vector<RobotOrder> order;
 
 	vector<Torso> torso;
 	vector<Head> head;
@@ -360,11 +407,13 @@ int main () {
 				    cin >> Cchoice;
 					cin.ignore();
 					switch(Cchoice) {
-						case 1: 
+						case 1: list_models(rbmodel, tp, torso, head, arm, loco, batt);
+								order.push_back(createOrder(rbmodel));
+								break;
 						case 2: cus.push_back(createCus());
 								break;
 						case 3:
-						case 4: cout << "Choose robot parts from the list to create your robot model" << endl;
+						case 4: cout << "\nChoose robot parts from the list to create your robot model" << endl;
 								cout << "-----------------------------------------------------------" << endl;
 								list_robotparts(torso, head, arm, loco, batt);
 								tp.push_back(TrackParts());
@@ -401,6 +450,8 @@ int main () {
 				    cin >> Rchoice;
 					cin.ignore();
 					switch(Rchoice) {
+						case 1: list_orders(order);
+								break;
 						case 2: list_cus(cus);
 								break;
 						case 4: list_models(rbmodel, tp, torso, head, arm, loco, batt);

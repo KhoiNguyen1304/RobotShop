@@ -6,7 +6,7 @@
 #include "view.h"
 #include "RobotModel.h"
 #include "TrackingParts.h"
-#include "Order.h"
+#include "RobotOrder.h"
 #include "Customer.h"
 #include <vector>
 
@@ -20,6 +20,7 @@ Battery createBattery();
 RobotModel createModel();
 TrackingParts TrackParts();
 Customer createCus();
+RobotOrder createOrder(std::vector<RobotModel> rbmodel);
 
 void displayModel_createOp();
 void displayCreateMenu();

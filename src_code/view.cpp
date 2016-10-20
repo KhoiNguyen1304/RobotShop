@@ -129,3 +129,12 @@ void list_cus(vector<Customer> cus) {
 		cout << "Customer's name: " << cus[i].GetName() << " - Customer's phone number: " << cus[i].GetCusNumber()
 		<< " - Customer's Wallet: " << cus[i].GetWallet() << endl;
 }
+
+void list_orders(vector<RobotOrder> order) {
+	cout << "\n\nOrders List" << endl;
+	cout << "-------------" << endl << endl;
+
+	for(std::size_t i = 0; i < order.size(); i++)
+		cout << "Order #: " << order[i].GetOrderNumber() << " - Date: " << order[i].GetDate()
+	    << " - Total Price: " << order[i].GetTotalPrice() << endl;
+}

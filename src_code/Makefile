@@ -1,4 +1,4 @@
-OBJS = RobotPart.o Torso.o Head.o Arm.o Locomotor.o Battery.o view.o controller.o RobotModel.o TrackingParts.o Customer.o
+OBJS = RobotPart.o Torso.o Head.o Arm.o Locomotor.o Battery.o view.o controller.o RobotModel.o TrackingParts.o RobotOrder.o Customer.o
 CC = g++
 DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
@@ -39,6 +39,9 @@ TrackingParts.o : TrackingParts.cpp TrackingParts.h
 
 Customer.o : Customer.cpp Customer.h
 		$(CC) $(CFLAGS) Customer.cpp
+
+RobotOrder.o : RobotOrder.cpp RobotOrder.h
+		$(CC) $(CFLAGS) RobotOrder.cpp
 
 clean:
 	\rm *.o a.out
